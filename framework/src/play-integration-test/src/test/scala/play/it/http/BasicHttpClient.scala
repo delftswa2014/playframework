@@ -19,7 +19,7 @@ object BasicHttpClient {
    * @param checkClosed Whether to check if the channel is closed after receiving the responses
    * @param trickleFeed A timeout to use between sending request body chunks
    * @param requests The requests to make
-   * @return The parsed number of responses.  This may be more than the number of requests, if continue headers are sent.
+   * @return The parsed number of responses.  This may be more than the number of requests, if continue headers are sent
    */
   def makeRequests(port: Int, checkClosed: Boolean = false, trickleFeed: Option[Long] = None)(requests: BasicRequest*): Seq[BasicResponse] = {
     val client = new BasicHttpClient(port)

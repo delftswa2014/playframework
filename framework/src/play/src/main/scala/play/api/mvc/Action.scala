@@ -142,7 +142,7 @@ trait BodyParser[+A] extends Function1[RequestHeader, Iteratee[Array[Byte], Eith
    * when the request body has been parsed.
    *
    * @param f a function for transforming the computed result
-   * @param ec The context to execute the supplied function with.
+   * @param ec The context to execute the supplied function with
    *        The context is prepared on the calling thread.
    * @return the transformed body parser
    * @see [[play.api.libs.iteratee.Iteratee#map]]
@@ -161,7 +161,7 @@ trait BodyParser[+A] extends Function1[RequestHeader, Iteratee[Array[Byte], Eith
    * Like map but allows the map function to execute asynchronously.
    *
    * @param f the async function to map the result of the body parser
-   * @param ec The context to execute the supplied function with.
+   * @param ec The context to execute the supplied function with
    *        The context prepared on the calling thread.
    * @return the transformed body parser
    * @see [[map]]
@@ -192,7 +192,7 @@ trait BodyParser[+A] extends Function1[RequestHeader, Iteratee[Array[Byte], Eith
    * input.
    *
    * @param f the function to produce a new body parser from the result of this body parser
-   * @param ec The context to execute the supplied function with.
+   * @param ec The context to execute the supplied function with
    *        The context is prepared on the calling thread.
    * @return the transformed body parser
    * @see [[play.api.libs.iteratee.Iteratee#flatMap]]
@@ -213,7 +213,7 @@ trait BodyParser[+A] extends Function1[RequestHeader, Iteratee[Array[Byte], Eith
    * Like flatMap but allows the flatMap function to execute asynchronously.
    *
    * @param f the async function to produce a new body parser from the result of this body parser
-   * @param ec The context to execute the supplied function with.
+   * @param ec The context to execute the supplied function with
    *        The context is prepared on the calling thread.
    * @return the transformed body parser
    * @see [[flatMap]]
@@ -250,7 +250,7 @@ trait BodyParser[+A] extends Function1[RequestHeader, Iteratee[Array[Byte], Eith
    * }}}
    *
    * @param f the function to validate the computed result of this body parser
-   * @param ec The context to execute the supplied function with.
+   * @param ec The context to execute the supplied function with
    *        The context is prepared on the calling thread.
    * @return the transformed body parser
    */
@@ -270,7 +270,7 @@ trait BodyParser[+A] extends Function1[RequestHeader, Iteratee[Array[Byte], Eith
    * Like validate but allows the validate function to execute asynchronously.
    *
    * @param f the async function to validate the computed result of this body parser
-   * @param ec The context to execute the supplied function with.
+   * @param ec The context to execute the supplied function with
    *        The context is prepared on the calling thread.
    * @return the transformed body parser
    * @see [[validate]]

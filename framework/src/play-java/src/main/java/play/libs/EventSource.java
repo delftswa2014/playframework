@@ -118,14 +118,14 @@ public abstract class EventSource extends Chunks<String> {
 
         /**
          * @param id Event id
-         * @return A copy of this event, with id {@code id}.
+         * @return A copy of this event, with id {@code id}
          */
         public Event withId(String id) {
             return new Event(this.data, id, this.name);
         }
 
         /**
-         * @return This event formatted according to the EventSource protocol.
+         * @return This event formatted according to the EventSource protocol
          */
         public String formatted() {
             return new play.api.libs.EventSource.Event(data, Scala.Option(id), Scala.Option(name)).formatted();

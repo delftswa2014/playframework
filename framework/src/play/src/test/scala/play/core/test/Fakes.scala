@@ -32,7 +32,7 @@ object Fakes {
 /**
  * Fake HTTP headers implementation.
  *
- * @param data Headers data.
+ * @param data Headers data
  */
 case class FakeHeaders(data: Seq[(String, String)] = Seq.empty) extends Headers(data)
 

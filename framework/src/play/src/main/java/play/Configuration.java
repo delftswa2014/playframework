@@ -85,7 +85,7 @@ public class Configuration {
     /**
      * Retrieves a sub-configuration, which is a configuration instance containing all keys that start with the given prefix.
      *
-     * @param key The root prefix for this sub configuration.
+     * @param key The root prefix for this sub configuration
      * @return Maybe a new configuration
      */
     public Configuration getConfig(String key) {

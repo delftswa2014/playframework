@@ -19,7 +19,7 @@ public interface BuildDocHandler {
   /**
    * Given a request, either handle it and return some result, or don't, and return none.
    *
-   * @param request A request of type {@code play.api.mvc.RequestHeader}.
+   * @param request A request of type {@code play.api.mvc.RequestHeader}
    * @return A value of type {@code Option<play.api.mvc.SimpleResult>}, Some if the result was
    *        handled, None otherwise.
    */

@@ -68,7 +68,7 @@ public interface PathBindable<T extends PathBindable<T>> {
     /**
      * Javascript function to unbind in the Javascript router.
      *
-     * @return The javascript function, or null if you want to use the default implementation.
+     * @return The javascript function, or null if you want to use the default implementation
      */
     public String javascriptUnbind();
 

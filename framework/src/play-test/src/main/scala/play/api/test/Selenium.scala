@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.FluentWait
 /**
  * A test browser (Using Selenium WebDriver) with the FluentLenium API (https://github.com/Fluentlenium/FluentLenium).
  *
- * @param webDriver The WebDriver instance to use.
+ * @param webDriver The WebDriver instance to use
  */
 case class TestBrowser(webDriver: WebDriver, baseUrl: Option[String]) extends FluentAdapter(webDriver) {
 

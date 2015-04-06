@@ -124,7 +124,7 @@ public class F {
         /**
          * Combine the given promises into a single promise for the list of results.
          *
-         * @param ec Used to execute the sequencing operations.
+         * @param ec Used to execute the sequencing operations
          * @param promises The promises to combine
          * @return A single promise whose methods act on the list of redeemed promises
          */
@@ -135,9 +135,9 @@ public class F {
         /**
          * Create a Promise that is redeemed after a timeout.
          *
-         * @param message The message to use to redeem the Promise.
-         * @param delay The delay (expressed with the corresponding unit).
-         * @param unit The Unit.
+         * @param message The message to use to redeem the Promise
+         * @param delay The delay (expressed with the corresponding unit)
+         * @param unit The Unit
          */
         public static <A> Promise<A> timeout(A message, long delay, TimeUnit unit) {
             return FPromiseHelper.timeout(message, delay, unit);
@@ -146,8 +146,8 @@ public class F {
         /**
          * Create a Promise that is redeemed after a timeout.
          *
-         * @param message The message to use to redeem the Promise.
-         * @param delay The delay expressed in milliseconds.
+         * @param message The message to use to redeem the Promise
+         * @param delay The delay expressed in milliseconds
          */
         public static <A> Promise<A> timeout(A message, long delay) {
             return timeout(message, delay, TimeUnit.MILLISECONDS);
@@ -160,7 +160,7 @@ public class F {
          * The returned Promise is usually combined with other Promises.
          *
          * @return a promise without a real value
-         * @param delay The delay expressed in milliseconds.
+         * @param delay The delay expressed in milliseconds
          */
         public static <A> Promise<scala.Unit> timeout(long delay) {
             return timeout(delay, TimeUnit.MILLISECONDS);
@@ -172,8 +172,8 @@ public class F {
          *
          * The returned Promise is usually combined with other Promises.
          *
-         * @param delay The delay (expressed with the corresponding unit).
-         * @param unit The Unit.
+         * @param delay The delay (expressed with the corresponding unit)
+         * @param unit The Unit
          * @return a promise without a real value
          */
         public static <A> Promise<scala.Unit> timeout(long delay, TimeUnit unit) {
@@ -196,7 +196,7 @@ public class F {
          * Combine the given promises into a single promise for the list of results.
          *
          * @param promises The promises to combine
-         * @param ec Used to execute the sequencing operations.
+         * @param ec Used to execute the sequencing operations
          * @return A single promise whose methods act on the list of redeemed promises
          */
         public static <A> Promise<List<A>> sequence(Iterable<Promise<A>> promises, ExecutionContext ec){
@@ -225,7 +225,7 @@ public class F {
          *
          * The Function0 will be run in the default ExecutionContext.
          *
-         * @param function Used to fulfill the Promise.
+         * @param function Used to fulfill the Promise
          */
         public static <A> Promise<A> promise(Function0<A> function) {
             return FPromiseHelper.promise(function, HttpExecution.defaultContext());
@@ -234,8 +234,8 @@ public class F {
         /**
          * Create a Promise which will be redeemed with the result of a given Function0.
          *
-         * @param function Used to fulfill the Promise.
-         * @param ec The ExecutionContext to run the function in.
+         * @param function Used to fulfill the Promise
+         * @param ec The ExecutionContext to run the function in
          */
         public static <A> Promise<A> promise(Function0<A> function, ExecutionContext ec) {
             return FPromiseHelper.promise(function, ec);
@@ -247,9 +247,9 @@ public class F {
          *
          * The function will be run in the default ExecutionContext.
          *
-         * @param function The function to call to fulfill the Promise.
-         * @param delay The time to wait.
-         * @param unit The units to use for the delay.
+         * @param function The function to call to fulfill the Promise
+         * @param delay The time to wait
+         * @param unit The units to use for the delay
          */
         public static <A> Promise<A> delayed(Function0<A> function, long delay, TimeUnit unit) {
             return FPromiseHelper.delayed(function, delay, unit, HttpExecution.defaultContext());
@@ -259,10 +259,10 @@ public class F {
          * Create a Promise which, after a delay, will be redeemed with the result of a
          * given function. The function will be called after the delay.
          *
-         * @param function The function to call to fulfill the Promise.
-         * @param delay The time to wait.
-         * @param unit The units to use for the delay.
-         * @param ec The ExecutionContext to run the Function0 in.
+         * @param function The function to call to fulfill the Promise
+         * @param delay The time to wait
+         * @param unit The units to use for the delay
+         * @param ec The ExecutionContext to run the Function0 in
          */
         public static <A> Promise<A> delayed(Function0<A> function, long delay, TimeUnit unit, ExecutionContext ec) {
             return FPromiseHelper.delayed(function, delay, unit, ec);
@@ -307,7 +307,7 @@ public class F {
          *
          * The callback will be run in the default execution context.
          *
-         * @param action The action to perform.
+         * @param action The action to perform
          */
         public void onRedeem(final Callback<A> action) {
             FPromiseHelper.onRedeem(this, action, HttpExecution.defaultContext());
@@ -316,8 +316,8 @@ public class F {
         /**
          * Perform the given <code>action</code> callback when the Promise is redeemed.
          *
-         * @param action The action to perform.
-         * @param ec The ExecutionContext to execute the action in.
+         * @param action The action to perform
+         * @param ec The ExecutionContext to execute the action in
          */
         public void onRedeem(final Callback<A> action, ExecutionContext ec) {
             FPromiseHelper.onRedeem(this, action, ec);
@@ -329,8 +329,8 @@ public class F {
          *
          * The function will be run in the default execution context.
          *
-         * @param function The function to map <code>A</code> to <code>B</code>.
-         * @return A wrapped promise that maps the type from <code>A</code> to <code>B</code>.
+         * @param function The function to map <code>A</code> to <code>B</code>
+         * @return A wrapped promise that maps the type from <code>A</code> to <code>B</code>
          */
         public <B> Promise<B> map(final Function<? super A, B> function) {
             return FPromiseHelper.map(this, function, HttpExecution.defaultContext());
@@ -340,9 +340,9 @@ public class F {
          * Maps this promise to a promise of type <code>B</code>.  The function <code>function</code> is applied as
          * soon as the promise is redeemed.
          *
-         * @param function The function to map <code>A</code> to <code>B</code>.
-         * @param ec The ExecutionContext to execute the function in.
-         * @return A wrapped promise that maps the type from <code>A</code> to <code>B</code>.
+         * @param function The function to map <code>A</code> to <code>B</code>
+         * @param ec The ExecutionContext to execute the function in
+         * @return A wrapped promise that maps the type from <code>A</code> to <code>B</code>
          */
         public <B> Promise<B> map(final Function<? super A, B> function, ExecutionContext ec) {
             return FPromiseHelper.map(this, function, ec);
@@ -367,7 +367,7 @@ public class F {
          *
          * @param function The function to handle the exception. This may, for example, convert the exception into something
          *      of type <code>T</code>, or it may throw another exception, or it may do some other handling.
-         * @param ec The ExecutionContext to execute the function in.
+         * @param ec The ExecutionContext to execute the function in
          * @return A wrapped promise that will only throw an exception if the supplied <code>function</code> throws an
          *      exception.
          */
@@ -415,7 +415,7 @@ public class F {
          *
          * This action will be run in the default exceution context.
          *
-         * @param action The action to perform.
+         * @param action The action to perform
          */
         public void onFailure(final Callback<Throwable> action) {
             FPromiseHelper.onFailure(this, action, HttpExecution.defaultContext());
@@ -424,8 +424,8 @@ public class F {
         /**
          * Perform the given <code>action</code> callback if the promise encounters an exception.
          *
-         * @param action The action to perform.
-         * @param ec The ExecutionContext to execute the callback in.
+         * @param action The action to perform
+         * @param ec The ExecutionContext to execute the callback in
          */
         public void onFailure(final Callback<Throwable> action, ExecutionContext ec) {
             FPromiseHelper.onFailure(this, action, ec);
@@ -437,7 +437,7 @@ public class F {
          *
          * The function will be run in the default execution context.
          *
-         * @param function The function to map <code>A</code> to a promise for <code>B</code>.
+         * @param function The function to map <code>A</code> to a promise for <code>B</code>
          * @return A wrapped promise for a result of type <code>B</code>
          */
         public <B> Promise<B> flatMap(final Function<? super A,Promise<B>> function) {
@@ -448,8 +448,8 @@ public class F {
          * Maps the result of this promise to a promise for a result of type <code>B</code>, and flattens that to be
          * a single promise for <code>B</code>.
          *
-         * @param function The function to map <code>A</code> to a promise for <code>B</code>.
-         * @param ec The ExecutionContext to execute the function in.
+         * @param function The function to map <code>A</code> to a promise for <code>B</code>
+         * @param ec The ExecutionContext to execute the function in
          * @return A wrapped promise for a result of type <code>B</code>
          */
         public <B> Promise<B> flatMap(final Function<? super A,Promise<B>> function, ExecutionContext ec) {
@@ -460,8 +460,8 @@ public class F {
          * Creates a new promise by filtering the value of the current promise with a predicate.
          * If the predicate fails, the resulting promise will fail with a `NoSuchElementException`.
          *
-         * @param predicate The predicate to test the current value.
-         * @return A new promise with the current value, if the predicate is satisfied.
+         * @param predicate The predicate to test the current value
+         * @return A new promise with the current value, if the predicate is satisfied
          */
         public Promise<A> filter(final Predicate<? super A> predicate) {
             return FPromiseHelper.filter(this, predicate, HttpExecution.defaultContext());
@@ -471,9 +471,9 @@ public class F {
          * Creates a new promise by filtering the value of the current promise with a predicate.
          * If the predicate fails, the resulting promise will fail with a `NoSuchElementException`.
          *
-         * @param predicate The predicate to test the current value.
-         * @param ec The ExecutionContext to execute the filtering in.
-         * @return A new promise with the current value, if the predicate is satisfied.
+         * @param predicate The predicate to test the current value
+         * @param ec The ExecutionContext to execute the filtering in
+         * @return A new promise with the current value, if the predicate is satisfied
          */
         public Promise<A> filter(final Predicate<? super A> predicate, ExecutionContext ec) {
             return FPromiseHelper.filter(this, predicate, ec);
@@ -662,7 +662,7 @@ public class F {
         /**
          * Is the value of this option defined?
          *
-         * @return <code>true</code> if the value is defined, otherwise <code>false</code>.
+         * @return <code>true</code> if the value is defined, otherwise <code>false</code>
          */
         public abstract boolean isDefined();
 
@@ -674,7 +674,7 @@ public class F {
         /**
          * Returns the value if defined.
          *
-         * @return The value if defined, otherwise <code>null</code>.
+         * @return The value if defined, otherwise <code>null</code>
          */
         public abstract T get();
 
@@ -691,7 +691,7 @@ public class F {
          * Construct a <code>Some</code> value.
          *
          * @param value The value to make optional
-         * @return Some <code>T</code>.
+         * @return Some <code>T</code>
          */
         public static <T> Some<T> Some(T value) {
             return new Some<T>(value);
@@ -701,7 +701,7 @@ public class F {
          * Get the value if defined, otherwise return the supplied <code>defaultValue</code>.
          *
          * @param defaultValue The value to return if the value of this option is not defined
-         * @return The value of this option, or <code>defaultValue</code>.
+         * @return The value of this option, or <code>defaultValue</code>
          */
         public T getOrElse(T defaultValue) {
             if(isDefined()) {
@@ -714,8 +714,8 @@ public class F {
         /**
          * Map this option to another value.
          *
-         * @param function The function to map the option using.
-         * @return The mapped option.
+         * @param function The function to map the option using
+         * @return The mapped option
          * @throws RuntimeException if <code>function</code> threw an Exception.  If the exception is a
          *      <code>RuntimeException</code>, it will be rethrown as is, otherwise it will be wrapped in a
          *      <code>RuntimeException</code>.
@@ -783,7 +783,7 @@ public class F {
      * Construct a <code>Some</code> value.
      *
      * @param value The value
-     * @return Some value.
+     * @return Some value
      */
     public static <A> Some<A> Some(A value) {
         return new Some<A>(value);
@@ -792,7 +792,7 @@ public class F {
     /**
      * Constructs a <code>None</code> value.
      *
-     * @return None.
+     * @return None
      */
     public static None None() {
         return new None();

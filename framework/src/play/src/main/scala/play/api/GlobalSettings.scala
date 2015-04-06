@@ -216,8 +216,8 @@ object GlobalSettings {
   /**
    * Load the global object.
    *
-   * @param configuration The configuration to read the loading from.
-   * @param environment The environment to load the global object from.
+   * @param configuration The configuration to read the loading from
+   * @param environment The environment to load the global object from
    * @return
    */
   def apply(configuration: Configuration, environment: Environment): GlobalSettings = {

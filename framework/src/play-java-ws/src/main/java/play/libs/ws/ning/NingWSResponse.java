@@ -182,7 +182,7 @@ public class NingWSResponse implements WSResponse {
      * Return the request {@link java.net.URI}. Note that if the request got redirected, the value of the
      * {@link java.net.URI} will be the last valid redirect url.
      *
-     * @return the request {@link java.net.URI}.
+     * @return the request {@link java.net.URI}
      */
     @Override
     public URI getUri() {

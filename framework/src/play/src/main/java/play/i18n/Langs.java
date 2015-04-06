@@ -39,7 +39,7 @@ public class Langs {
      * play.modules.i18n.langs="fr,en,de"
      * </pre>
      *
-     * @return The available languages.
+     * @return The available languages
      */
     public List<Lang> availables() {
         return availables;

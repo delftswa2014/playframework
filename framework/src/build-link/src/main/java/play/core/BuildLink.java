@@ -43,8 +43,8 @@ public interface BuildLink {
      * If the class is generated (eg a template), then the original source file should be returned, and the line number
      * should be mapped back to the line number in the original source file, if possible.
      *
-     * @param className The name of the class to find the source for.
-     * @param line The line number the exception was thrown at.
+     * @param className The name of the class to find the source for
+     * @param line The line number the exception was thrown at
      * @return Either:
      * <ul>
      *     <li>[File, Integer] - The source file, and the passed in line number, if the source wasn't generated, or if
@@ -60,7 +60,7 @@ public interface BuildLink {
     /**
      * Get the path of the project.  This is used by methods such as {@code play.api.Application#getFile}.
      *
-     * @return The path of the project.
+     * @return The path of the project
      */
     public File projectPath();
 
@@ -75,7 +75,7 @@ public interface BuildLink {
     /**
      * Returns a list of application settings configured in the build system.
      *
-     * @return The settings.
+     * @return The settings
      */
     public Map<String,String> settings();
 
@@ -88,8 +88,8 @@ public interface BuildLink {
      * For the default SBT implementation, it's a standard SBT task, and the result is the return value of that task.
      * Note that if the return value is anything but JDK classes, the only way to access it will be using reflection.
      *
-     * @param task The name of the task to run.
-     * @return The result of running the task.
+     * @param task The name of the task to run
+     * @return The result of running the task
      */
     public Object runTask(String task);
 }
