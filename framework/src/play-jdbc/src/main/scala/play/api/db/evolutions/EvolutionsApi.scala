@@ -371,7 +371,7 @@ abstract class ResourceEvolutionsReader extends EvolutionsReader {
   /**
    * Load the evolutions resource for the given database and revision.
    *
-   * @return An InputStream to consume the resource, if such a resource exists
+   * @return an InputStream to consume the resource, if such a resource exists
    */
   def loadResource(db: String, revision: Int): Option[InputStream]
 

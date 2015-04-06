@@ -51,7 +51,7 @@ abstract class Module {
    *
    * @param environment The environment
    * @param configuration The configuration
-   * @return A sequence of bindings
+   * @return a sequence of bindings
    */
   def bindings(environment: Environment, configuration: Configuration): Seq[Binding[_]]
 
@@ -84,7 +84,7 @@ object Modules {
    *
    * @param environment The environment
    * @param configuration The configuration
-   * @return A sequence of objects. This method makes no attempt to cast or check the types of the modules being loaded,
+   * @return a sequence of objects. This method makes no attempt to cast or check the types of the modules being loaded,
    *         allowing ApplicationLoader implementations to reuse the same mechanism to load modules specific to them.
    */
   def locate(environment: Environment, configuration: Configuration): Seq[Any] = {

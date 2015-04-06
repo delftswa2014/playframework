@@ -75,7 +75,7 @@ object RoutesCompiler {
    * @param task The routes compilation task
    * @param generator The routes generator
    * @param generatedDir The directory to place the generated source code in
-   * @return Either the list of files that were generated (right) or the routes compilation errors (left)
+   * @return either the list of files that were generated (right) or the routes compilation errors (left)
    */
   def compile(task: RoutesCompilerTask, generator: RoutesGenerator, generatedDir: File): Either[Seq[RoutesCompilationError], Seq[File]] = {
 

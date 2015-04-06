@@ -27,7 +27,7 @@ trait Formatter[T] {
    *
    * @param key the field key
    * @param data the submitted data
-   * @return Either a concrete value of type T or a set of error if the binding failed
+   * @return either a concrete value of type T or a set of error if the binding failed
    */
   def bind(key: String, data: Map[String, String]): Either[Seq[FormError], T]
 

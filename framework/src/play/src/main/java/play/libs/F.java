@@ -115,7 +115,7 @@ public class F {
          * The sequencing operations are performed in the default ExecutionContext.
          *
          * @param promises The promises to combine
-         * @return A single promise whose methods act on the list of redeemed promises
+         * @return a single promise whose methods act on the list of redeemed promises
          */
         public static <A> Promise<List<A>> sequence(Promise<A>... promises){
             return FPromiseHelper.<A>sequence(java.util.Arrays.asList(promises), HttpExecution.defaultContext());
@@ -126,7 +126,7 @@ public class F {
          *
          * @param ec Used to execute the sequencing operations
          * @param promises The promises to combine
-         * @return A single promise whose methods act on the list of redeemed promises
+         * @return a single promise whose methods act on the list of redeemed promises
          */
         public static <A> Promise<List<A>> sequence(ExecutionContext ec, Promise<A>... promises){
             return FPromiseHelper.<A>sequence(java.util.Arrays.asList(promises), ec);
@@ -186,7 +186,7 @@ public class F {
          * The sequencing operations are performed in the default ExecutionContext.
          *
          * @param promises The promises to combine
-         * @return A single promise whose methods act on the list of redeemed promises
+         * @return a single promise whose methods act on the list of redeemed promises
          */
         public static <A> Promise<List<A>> sequence(Iterable<Promise<A>> promises){
             return FPromiseHelper.<A>sequence(promises, HttpExecution.defaultContext());
@@ -197,7 +197,7 @@ public class F {
          *
          * @param promises The promises to combine
          * @param ec Used to execute the sequencing operations
-         * @return A single promise whose methods act on the list of redeemed promises
+         * @return a single promise whose methods act on the list of redeemed promises
          */
         public static <A> Promise<List<A>> sequence(Iterable<Promise<A>> promises, ExecutionContext ec){
             return FPromiseHelper.<A>sequence(promises, ec);
@@ -275,7 +275,7 @@ public class F {
          * @param timeout A user defined timeout
          * @param unit timeout for timeout
          * @throws PromiseTimeoutException when the promise did timeout.
-         * @return The promised result
+         * @return the promised result
          *
          */
         public A get(long timeout, TimeUnit unit) {
@@ -288,7 +288,7 @@ public class F {
          *
          * @param timeout A user defined timeout in milliseconds
          * @throws PromiseTimeoutException when the promise did timeout.
-         * @return The promised result
+         * @return the promised result
          */
         public A get(long timeout) {
             return FPromiseHelper.get(this, timeout, TimeUnit.MILLISECONDS);
@@ -330,7 +330,7 @@ public class F {
          * The function will be run in the default execution context.
          *
          * @param function The function to map <code>A</code> to <code>B</code>
-         * @return A wrapped promise that maps the type from <code>A</code> to <code>B</code>
+         * @return a wrapped promise that maps the type from <code>A</code> to <code>B</code>
          */
         public <B> Promise<B> map(final Function<? super A, B> function) {
             return FPromiseHelper.map(this, function, HttpExecution.defaultContext());
@@ -342,7 +342,7 @@ public class F {
          *
          * @param function The function to map <code>A</code> to <code>B</code>
          * @param ec The ExecutionContext to execute the function in
-         * @return A wrapped promise that maps the type from <code>A</code> to <code>B</code>
+         * @return a wrapped promise that maps the type from <code>A</code> to <code>B</code>
          */
         public <B> Promise<B> map(final Function<? super A, B> function, ExecutionContext ec) {
             return FPromiseHelper.map(this, function, ec);
@@ -355,7 +355,7 @@ public class F {
          *
          * @param function The function to handle the exception. This may, for example, convert the exception into something
          *      of type <code>T</code>, or it may throw another exception, or it may do some other handling.
-         * @return A wrapped promise that will only throw an exception if the supplied <code>function</code> throws an
+         * @return a wrapped promise that will only throw an exception if the supplied <code>function</code> throws an
          *      exception.
          */
         public Promise<A> recover(final Function<Throwable,A> function) {
@@ -368,7 +368,7 @@ public class F {
          * @param function The function to handle the exception. This may, for example, convert the exception into something
          *      of type <code>T</code>, or it may throw another exception, or it may do some other handling.
          * @param ec The ExecutionContext to execute the function in
-         * @return A wrapped promise that will only throw an exception if the supplied <code>function</code> throws an
+         * @return a wrapped promise that will only throw an exception if the supplied <code>function</code> throws an
          *      exception.
          */
         public Promise<A> recover(final Function<Throwable,A> function, ExecutionContext ec) {
@@ -381,7 +381,7 @@ public class F {
          * The function will be run in the default execution context.
          *
          * @param function The function to handle the exception, and which returns another promise
-         * @return A promise that will delegate to another promise on failure
+         * @return a promise that will delegate to another promise on failure
          */
         public Promise<A> recoverWith(final Function<Throwable, Promise<A>> function) {
             return FPromiseHelper.recoverWith(this, function, HttpExecution.defaultContext());
@@ -392,7 +392,7 @@ public class F {
          *
          * @param function The function to handle the exception, and which returns another promise
          * @param ec The ExecutionContext to execute the function in
-         * @return A promise that will delegate to another promise on failure
+         * @return a promise that will delegate to another promise on failure
          */
         public Promise<A> recoverWith(final Function<Throwable, Promise<A>> function, ExecutionContext ec) {
             return FPromiseHelper.recoverWith(this, function, ec);
@@ -404,7 +404,7 @@ public class F {
          * If both promises failed, the resulting promise holds the throwable of this promise.
          *
          * @param fallback The promise to fallback to if this promise has failed
-         * @return A promise that will delegate to another promise on failure
+         * @return a promise that will delegate to another promise on failure
          */
         public Promise<A> fallbackTo(final Promise<A> fallback) {
             return FPromiseHelper.fallbackTo(this, fallback);
@@ -438,7 +438,7 @@ public class F {
          * The function will be run in the default execution context.
          *
          * @param function The function to map <code>A</code> to a promise for <code>B</code>
-         * @return A wrapped promise for a result of type <code>B</code>
+         * @return a wrapped promise for a result of type <code>B</code>
          */
         public <B> Promise<B> flatMap(final Function<? super A,Promise<B>> function) {
             return FPromiseHelper.flatMap(this, function, HttpExecution.defaultContext());
@@ -450,7 +450,7 @@ public class F {
          *
          * @param function The function to map <code>A</code> to a promise for <code>B</code>
          * @param ec The ExecutionContext to execute the function in
-         * @return A wrapped promise for a result of type <code>B</code>
+         * @return a wrapped promise for a result of type <code>B</code>
          */
         public <B> Promise<B> flatMap(final Function<? super A,Promise<B>> function, ExecutionContext ec) {
             return FPromiseHelper.flatMap(this, function, ec);
@@ -461,7 +461,7 @@ public class F {
          * If the predicate fails, the resulting promise will fail with a `NoSuchElementException`.
          *
          * @param predicate The predicate to test the current value
-         * @return A new promise with the current value, if the predicate is satisfied
+         * @return a new promise with the current value, if the predicate is satisfied
          */
         public Promise<A> filter(final Predicate<? super A> predicate) {
             return FPromiseHelper.filter(this, predicate, HttpExecution.defaultContext());
@@ -473,7 +473,7 @@ public class F {
          *
          * @param predicate The predicate to test the current value
          * @param ec The ExecutionContext to execute the filtering in
-         * @return A new promise with the current value, if the predicate is satisfied
+         * @return a new promise with the current value, if the predicate is satisfied
          */
         public Promise<A> filter(final Predicate<? super A> predicate, ExecutionContext ec) {
             return FPromiseHelper.filter(this, predicate, ec);
@@ -487,7 +487,7 @@ public class F {
          *
          * @param onSuccess The function to map a successful result from {@code A} to {@code B}
          * @param onFailure The function to map the {@code Throwable} when failed
-         * @return A new promise mapped by either the {@code onSuccess} or {@code onFailure} functions
+         * @return a new promise mapped by either the {@code onSuccess} or {@code onFailure} functions
          */
         public <B> Promise<B> transform(final Function<? super A, B> onSuccess, final Function<Throwable, Throwable> onFailure) {
             return FPromiseHelper.transform(this, onSuccess, onFailure, HttpExecution.defaultContext());
@@ -500,7 +500,7 @@ public class F {
          * @param onSuccess The function to map a successful result from {@code A} to {@code B}
          * @param onFailure The function to map the {@code Throwable} when failed
          * @param ec The ExecutionContext to execute functions in
-         * @return A new promise mapped by either the {@code onSuccess} or {@code onFailure} functions
+         * @return a new promise mapped by either the {@code onSuccess} or {@code onFailure} functions
          */
         public <B> Promise<B> transform(final Function<? super A, B> onSuccess, final Function<Throwable, Throwable> onFailure, ExecutionContext ec) {
             return FPromiseHelper.transform(this, onSuccess, onFailure, ec);
@@ -523,7 +523,7 @@ public class F {
         /**
          * Gets the Scala Future wrapped by this Promise.
          *
-         * @return The Scala Future
+         * @return the Scala Future
          */
         public Future<A> wrapped() {
             return future;
@@ -591,7 +591,7 @@ public class F {
          * Completes this promise with the specified Promise, once that Promise is completed.
          *
          * @param other The value to complete with
-         * @return A promise giving the result of attempting to complete this promise with the other
+         * @return a promise giving the result of attempting to complete this promise with the other
          *         promise. If the completion was successful then the result will be a null value,
          *         if the completion failed then the result will be an IllegalStateException.
          */
@@ -604,7 +604,7 @@ public class F {
          *
          * @param other The value to complete with
          * @param ec An execution context
-         * @return A promise giving the result of attempting to complete this promise with the other
+         * @return a promise giving the result of attempting to complete this promise with the other
          *         promise. If the completion was successful then the result will be a null value,
          *         if the completion failed then the result will be an IllegalStateException.
          */
@@ -617,7 +617,7 @@ public class F {
          * Completes this promise with the specified Promise, once that Promise is completed.
          *
          * @param other The value to complete with
-         * @return A promise giving the result of attempting to complete this promise with the other
+         * @return a promise giving the result of attempting to complete this promise with the other
          *         promise. If the completion was successful then the result will be true, if the
          *         completion couldn't occur then the result will be false.
          */
@@ -630,7 +630,7 @@ public class F {
          *
          * @param other The value to complete with
          * @param ec An execution context
-         * @return A promise giving the result of attempting to complete this promise with the other
+         * @return a promise giving the result of attempting to complete this promise with the other
          *         promise. If the completion was successful then the result will be true, if the
          *         completion couldn't occur then the result will be false.
          */
@@ -674,7 +674,7 @@ public class F {
         /**
          * Returns the value if defined.
          *
-         * @return The value if defined, otherwise <code>null</code>
+         * @return the value if defined, otherwise <code>null</code>
          */
         public abstract T get();
 
@@ -691,7 +691,7 @@ public class F {
          * Construct a <code>Some</code> value.
          *
          * @param value The value to make optional
-         * @return Some <code>T</code>
+         * @return some <code>T</code>
          */
         public static <T> Some<T> Some(T value) {
             return new Some<T>(value);
@@ -701,7 +701,7 @@ public class F {
          * Get the value if defined, otherwise return the supplied <code>defaultValue</code>.
          *
          * @param defaultValue The value to return if the value of this option is not defined
-         * @return The value of this option, or <code>defaultValue</code>
+         * @return the value of this option, or <code>defaultValue</code>
          */
         public T getOrElse(T defaultValue) {
             if(isDefined()) {
@@ -715,7 +715,7 @@ public class F {
          * Map this option to another value.
          *
          * @param function The function to map the option using
-         * @return The mapped option
+         * @return the mapped option
          * @throws RuntimeException if <code>function</code> threw an Exception.  If the exception is a
          *      <code>RuntimeException</code>, it will be rethrown as is, otherwise it will be wrapped in a
          *      <code>RuntimeException</code>.
@@ -783,7 +783,7 @@ public class F {
      * Construct a <code>Some</code> value.
      *
      * @param value The value
-     * @return Some value
+     * @return some value
      */
     public static <A> Some<A> Some(A value) {
         return new Some<A>(value);
@@ -940,7 +940,7 @@ public class F {
          * Constructs a left side of the disjoint union, as opposed to the Right side.
          *
          * @param value The value of the left side
-         * @return A left sided disjoint union
+         * @return a left sided disjoint union
          */
         public static <A, B> Either<A, B> Left(A value) {
             return new Either<A, B>(Some(value), None());
@@ -950,7 +950,7 @@ public class F {
          * Constructs a right side of the disjoint union, as opposed to the Left side.
          *
          * @param value The value of the right side
-         * @return A right sided disjoint union
+         * @return a right sided disjoint union
          */
         public static <A, B> Either<A, B> Right(B value) {
             return new Either<A, B>(None(), Some(value));
@@ -1008,7 +1008,7 @@ public class F {
      *
      * @param a The a value
      * @param b The b value
-     * @return The tuple
+     * @return the tuple
      */
     public static <A, B> Tuple<A, B> Tuple(A a, B b) {
         return new Tuple<A, B>(a, b);
@@ -1066,7 +1066,7 @@ public class F {
      * @param a The a value
      * @param b The b value
      * @param c The c value
-     * @return The tuple
+     * @return the tuple
      */
     public static <A, B, C> Tuple3<A, B, C> Tuple3(A a, B b, C c) {
         return new Tuple3<A, B, C>(a, b, c);
@@ -1128,7 +1128,7 @@ public class F {
      * @param b The b value
      * @param c The c value
      * @param d The d value
-     * @return The tuple
+     * @return the tuple
      */
     public static <A, B, C, D> Tuple4<A, B, C, D> Tuple4(A a, B b, C c, D d) {
         return new Tuple4<A, B, C, D>(a, b, c, d);
@@ -1196,7 +1196,7 @@ public class F {
      * @param c The c value
      * @param d The d value
      * @param e The e value
-     * @return The tuple
+     * @return the tuple
      */
     public static <A, B, C, D, E> Tuple5<A, B, C, D, E> Tuple5(A a, B b, C c, D d, E e) {
         return new Tuple5<A, B, C, D, E>(a, b, c, d, e);

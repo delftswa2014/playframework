@@ -122,7 +122,7 @@ object Play {
    * }}}
    *
    * @param name Absolute name of the resource (from the classpath root)
-   * @return Maybe a stream if found
+   * @return maybe a stream if found
    */
   def resourceAsStream(name: String)(implicit app: Application): Option[InputStream] = {
     app.resourceAsStream(name)

@@ -80,7 +80,7 @@ package views.html.helper {
      * @param field The field to repeat
      * @param min The minimum number of times the field should be repeated
      * @param fieldRenderer A function to render the field
-     * @return The sequence of rendered fields
+     * @return the sequence of rendered fields
      */
     def apply(field: play.api.data.Field, min: Int = 1)(fieldRenderer: play.api.data.Field => Html): Seq[Html] = {
       val indexes = field.indexes match {

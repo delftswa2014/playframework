@@ -205,7 +205,7 @@ object Iteratee {
      * @param eofValue Value if the input is [[play.api.libs.iteratee.Input.EOF]]
      * @tparam A Type of `eofValue`
      * @tparam B Type of `otherwise`
-     * @return An `Iteratee[E, Either[B, A]]` that consumes one input and produces a `Right(eofValue)` if this input is [[play.api.libs.iteratee.Input.EOF]] otherwise it produces a `Left(otherwise)`
+     * @return an `Iteratee[E, Either[B, A]]` that consumes one input and produces a `Right(eofValue)` if this input is [[play.api.libs.iteratee.Input.EOF]] otherwise it produces a `Left(otherwise)`
      */
     def apply[A, B](otherwise: B)(eofValue: A): Iteratee[E, Either[B, A]]
   }

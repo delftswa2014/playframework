@@ -126,7 +126,7 @@ object Release {
      *
      * @param state The sbt state
      * @param options The release options
-     * @return Any extra commands that should be run before the next command is run
+     * @return any extra commands that should be run before the next command is run
      */
     def execute(state: State, options: ReleaseOptions): Seq[String]
   }

@@ -29,7 +29,7 @@ public abstract class EvolutionsReader implements play.api.db.evolutions.Evoluti
      * Get the evolutions for the given database name.
      *
      * @param db The name of the database
-     * @return The collection of evolutions
+     * @return the collection of evolutions
      */
     public abstract Collection<Evolution> getEvolutions(String db);
 }

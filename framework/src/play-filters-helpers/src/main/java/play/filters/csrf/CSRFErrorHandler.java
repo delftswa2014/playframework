@@ -20,7 +20,7 @@ public interface CSRFErrorHandler {
      *
      * @param req The request
      * @param msg message is passed by framework
-     * @return Client gets this result
+     * @return client gets this result
      */
     F.Promise<Result> handle(Http.RequestHeader req, String msg);
 

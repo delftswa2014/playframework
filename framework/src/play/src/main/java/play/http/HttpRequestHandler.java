@@ -21,7 +21,7 @@ public interface HttpRequestHandler {
      *
      * @param request The HTTP Request
      * @param actionMethod The action method containing the user code for this Action
-     * @return The default implementation returns a raw Action calling the method
+     * @return the default implementation returns a raw Action calling the method
      */
     Action createAction(Request request, Method actionMethod);
 
@@ -32,7 +32,7 @@ public interface HttpRequestHandler {
      * action if required.
      *
      * @param action The action to wrap
-     * @return A wrapped action
+     * @return a wrapped action
      */
     Action wrapAction(Action action);
 }

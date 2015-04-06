@@ -66,7 +66,7 @@ case class PathPattern(parts: Seq[PathPart]) {
    * Apply the path pattern to a given candidate path to see if it matches.
    *
    * @param path The path to match against
-   * @return The map of extracted parameters, or none if the path didn't match
+   * @return the map of extracted parameters, or none if the path didn't match
    */
   def apply(path: String): Option[Map[String, Either[Throwable, String]]] = {
     val matcher = regex.matcher(path)

@@ -74,7 +74,7 @@ trait Server extends ServerWithStop {
    *
    * This is useful when the port number has been automatically selected (by setting a port number of 0).
    *
-   * @return The HTTP port the server is bound to, if the HTTP connector is enabled
+   * @return the HTTP port the server is bound to, if the HTTP connector is enabled
    */
   def httpPort: Option[Int]
 
@@ -83,7 +83,7 @@ trait Server extends ServerWithStop {
    *
    * This is useful when the port number has been automatically selected (by setting a port number of 0).
    *
-   * @return The HTTPS port the server is bound to, if the HTTPS connector is enabled
+   * @return the HTTPS port the server is bound to, if the HTTPS connector is enabled
    */
   def httpsPort: Option[Int]
 
@@ -105,7 +105,7 @@ object Server {
    *               ephemeral port.
    * @param block The block of code to run
    * @param provider The server provider
-   * @return The result of the block of code
+   * @return the result of the block of code
    */
   def withApplication[T](application: Application, config: ServerConfig = ServerConfig(port = Some(0), mode = Mode.Test))(block: Port => T)(implicit provider: ServerProvider): T = {
     val server = provider.createServer(config, new TestApplication(application))
@@ -127,7 +127,7 @@ object Server {
    *               ephemeral port.
    * @param block The block of code to run
    * @param provider The server provider
-   * @return The result of the block of code
+   * @return the result of the block of code
    */
   def withRouter[T](config: ServerConfig = ServerConfig(port = Some(0), mode = Mode.Test))(routes: PartialFunction[RequestHeader, Handler])(block: Port => T)(implicit provider: ServerProvider): T = {
     val application = new BuiltInComponentsFromContext(ApplicationLoader.Context(

@@ -58,7 +58,7 @@ public class GlobalSettings {
      *
      * @param request The HTTP Request
      * @param actionMethod The action method containing the user code for this Action
-     * @return The default implementation returns a raw Action calling the method
+     * @return the default implementation returns a raw Action calling the method
      */
     @SuppressWarnings("rawtypes")
     public Action onRequest(Request request, Method actionMethod) {
@@ -120,7 +120,7 @@ public class GlobalSettings {
      * @param config the loaded configuration
      * @param path the application path
      * @param classloader The applications classloader
-     * @return The configuration that the application should use
+     * @return the configuration that the application should use
      */
     public Configuration onLoadConfig(Configuration config, File path, ClassLoader classloader) {
         return null;
@@ -133,7 +133,7 @@ public class GlobalSettings {
      * @param path the application path
      * @param classloader The applications classloader
      * @param mode The mode of the application
-     * @return The configuration that the application should use
+     * @return the configuration that the application should use
      */
     public Configuration onLoadConfig(Configuration config, File path, ClassLoader classloader, Mode mode) {
         return onLoadConfig(config, path, classloader);

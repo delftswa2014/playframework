@@ -71,7 +71,7 @@ public class RoutingDsl {
      * Create a GET route for the given path pattern.
      *
      * @param pathPattern The path pattern
-     * @return A GET route matcher
+     * @return a GET route matcher
      */
     public PathPatternMatcher GET(String pathPattern) {
         return new PathPatternMatcher("GET", pathPattern);
@@ -81,7 +81,7 @@ public class RoutingDsl {
      * Create a HEAD route for the given path pattern.
      *
      * @param pathPattern The path pattern
-     * @return A HEAD route matcher
+     * @return a HEAD route matcher
      */
     public PathPatternMatcher HEAD(String pathPattern) {
         return new PathPatternMatcher("HEAD", pathPattern);
@@ -91,7 +91,7 @@ public class RoutingDsl {
      * Create a POST route for the given path pattern.
      *
      * @param pathPattern The path pattern
-     * @return A POST route matcher
+     * @return a POST route matcher
      */
     public PathPatternMatcher POST(String pathPattern) {
         return new PathPatternMatcher("POST", pathPattern);
@@ -101,7 +101,7 @@ public class RoutingDsl {
      * Create a PUT route for the given path pattern.
      *
      * @param pathPattern The path pattern
-     * @return A PUT route matcher
+     * @return a PUT route matcher
      */
     public PathPatternMatcher PUT(String pathPattern) {
         return new PathPatternMatcher("PUT", pathPattern);
@@ -111,7 +111,7 @@ public class RoutingDsl {
      * Create a DELETE route for the given path pattern.
      *
      * @param pathPattern The path pattern
-     * @return A DELETE route matcher
+     * @return a DELETE route matcher
      */
     public PathPatternMatcher DELETE(String pathPattern) {
         return new PathPatternMatcher("DELETE", pathPattern);
@@ -121,7 +121,7 @@ public class RoutingDsl {
      * Create a PATCH route for the given path pattern.
      *
      * @param pathPattern The path pattern
-     * @return A PATCH route matcher
+     * @return a PATCH route matcher
      */
     public PathPatternMatcher PATCH(String pathPattern) {
         return new PathPatternMatcher("PATCH", pathPattern);
@@ -131,7 +131,7 @@ public class RoutingDsl {
      * Create a OPTIONS route for the given path pattern.
      *
      * @param pathPattern The path pattern
-     * @return A OPTIONS route matcher
+     * @return a OPTIONS route matcher
      */
     public PathPatternMatcher OPTIONS(String pathPattern) {
         return new PathPatternMatcher("OPTIONS", pathPattern);
@@ -142,7 +142,7 @@ public class RoutingDsl {
      *
      * @param method      The method;
      * @param pathPattern The path pattern
-     * @return A route matcher
+     * @return a route matcher
      */
     public PathPatternMatcher match(String method, String pathPattern) {
         return new PathPatternMatcher(method, pathPattern);
@@ -151,7 +151,7 @@ public class RoutingDsl {
     /**
      * Build the router.
      *
-     * @return The built router
+     * @return the built router
      */
     public play.api.routing.Router build() {
         return RouterBuilderHelper.build(this);
@@ -282,7 +282,7 @@ public class RoutingDsl {
          * Route with no parameters.
          *
          * @param action The action to execute
-         * @return This router builder
+         * @return this router builder
          */
         public RoutingDsl routeTo(F.Function0<Result> action) {
             return build(0, action, F.Function0.class);
@@ -292,7 +292,7 @@ public class RoutingDsl {
          * Route with one parameter.
          *
          * @param action The action to execute
-         * @return This router builder
+         * @return this router builder
          */
         public <A1> RoutingDsl routeTo(F.Function<A1, Result> action) {
             return build(1, action, F.Function.class);
@@ -302,7 +302,7 @@ public class RoutingDsl {
          * Route with two parameters.
          *
          * @param action The action to execute
-         * @return This router builder
+         * @return this router builder
          */
         public <A1, A2> RoutingDsl routeTo(F.Function2<A1, A2, Result> action) {
             return build(2, action, F.Function2.class);
@@ -312,7 +312,7 @@ public class RoutingDsl {
          * Route with three parameters.
          *
          * @param action The action to execute
-         * @return This router builder
+         * @return this router builder
          */
         public <A1, A2, A3> RoutingDsl routeTo(F.Function3<A1, A2, A3, Result> action) {
             return build(3, action, F.Function3.class);
@@ -322,7 +322,7 @@ public class RoutingDsl {
          * Route with no parameters.
          *
          * @param action The action to execute
-         * @return This router builder
+         * @return this router builder
          */
         public RoutingDsl routeAsync(F.Function0<F.Promise<Result>> action) {
             return build(0, action, F.Function0.class);
@@ -332,7 +332,7 @@ public class RoutingDsl {
          * Route with one parameter.
          *
          * @param action The action to execute
-         * @return This router builder
+         * @return this router builder
          */
         public <A1> RoutingDsl routeAsync(F.Function<A1, F.Promise<Result>> action) {
             return build(1, action, F.Function.class);
@@ -342,7 +342,7 @@ public class RoutingDsl {
          * Route with two parameters.
          *
          * @param action The action to execute
-         * @return This router builder
+         * @return this router builder
          */
         public <A1, A2> RoutingDsl routeAsync(F.Function2<A1, A2, F.Promise<Result>> action) {
             return build(2, action, F.Function2.class);
@@ -352,7 +352,7 @@ public class RoutingDsl {
          * Route with three parameters.
          *
          * @param action The action to execute
-         * @return This router builder
+         * @return this router builder
          */
         public <A1, A2, A3> RoutingDsl routeAsync(F.Function3<A1, A2, A3, F.Promise<Result>> action) {
             return build(3, action, F.Function3.class);

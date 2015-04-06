@@ -56,7 +56,7 @@ object Files {
      *
      * @param prefix The prefix used for the temporary file name
      * @param suffix The suffix used for the temporary file name
-     * @return A temporary file instance
+     * @return a temporary file instance
      */
     def apply(prefix: String = "", suffix: String = ""): TemporaryFile = {
       new TemporaryFile(File.createTempFile(prefix, suffix))

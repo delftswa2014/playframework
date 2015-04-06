@@ -111,7 +111,7 @@ object WebDriverFactory {
   /**
    * Creates a Selenium Web Driver and configures it
    * @param clazz Type of driver to create
-   * @return The driver instance
+   * @return the driver instance
    */
   def apply[D <: WebDriver](clazz: Class[D]): WebDriver = {
     val driver = clazz.newInstance

@@ -94,7 +94,7 @@ trait GlobalSettings {
    * @param path the application path
    * @param classloader The applications classloader
    * @param mode The mode the application is running in
-   * @return The configuration that the application should use
+   * @return the configuration that the application should use
    */
   def onLoadConfig(config: Configuration, path: File, classloader: ClassLoader, mode: Mode.Mode): Configuration =
     config ++ configuration
@@ -173,7 +173,7 @@ trait GlobalSettings {
    *
    * @param request The HTTP request header
    * @param ex The exception
-   * @return The result to send to the client
+   * @return the result to send to the client
    */
   def onError(request: RequestHeader, ex: Throwable): Future[Result] =
     defaultErrorHandler.onServerError(request, ex)

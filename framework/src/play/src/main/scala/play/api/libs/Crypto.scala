@@ -51,7 +51,7 @@ object Crypto {
    *
    * @param message The message to sign
    * @param key The private key to sign with
-   * @return A hexadecimal encoded signature
+   * @return a hexadecimal encoded signature
    */
   def sign(message: String, key: Array[Byte]): String = crypto.sign(message, key)
 
@@ -62,7 +62,7 @@ object Crypto {
    * `play.crypto.provider` in `application.conf`.
    *
    * @param message The message to sign
-   * @return A hexadecimal encoded signature
+   * @return a hexadecimal encoded signature
    */
   def sign(message: String): String = crypto.sign(message)
 
@@ -73,7 +73,7 @@ object Crypto {
    * request, without actually changing the value.
    *
    * @param token The token to sign
-   * @return The signed token
+   * @return the signed token
    */
   def signToken(token: String): String = crypto.signToken(token)
 
@@ -81,7 +81,7 @@ object Crypto {
    * Extract a signed token that was signed by [[play.api.libs.Crypto.signToken]].
    *
    * @param token The signed token to extract
-   * @return The verified raw token, or None if the token isn't valid
+   * @return the verified raw token, or None if the token isn't valid
    */
   def extractSignedToken(token: String): Option[String] = crypto.extractSignedToken(token)
 
@@ -134,7 +134,7 @@ object Crypto {
    * is always AES, so only AES transformation algorithms will work.
    *
    * @param value The String to encrypt
-   * @return An hexadecimal encrypted string
+   * @return an hexadecimal encrypted string
    */
   def encryptAES(value: String): String = crypto.encryptAES(value)
 
@@ -155,7 +155,7 @@ object Crypto {
    *
    * @param value The String to encrypt
    * @param privateKey The key used to encrypt
-   * @return An hexadecimal encrypted string
+   * @return an hexadecimal encrypted string
    */
   def encryptAES(value: String, privateKey: String): String = crypto.encryptAES(value, privateKey)
 
@@ -170,7 +170,7 @@ object Crypto {
    * be selected here, the secret key spec used is always AES, so only AES transformation algorithms will work.
    *
    * @param value An hexadecimal encrypted string
-   * @return The decrypted String
+   * @return the decrypted String
    */
   def decryptAES(value: String): String = crypto.decryptAES(value)
 
@@ -188,7 +188,7 @@ object Crypto {
    *
    * @param value An hexadecimal encrypted string
    * @param privateKey The key used to encrypt
-   * @return The decrypted String
+   * @return the decrypted String
    */
   def decryptAES(value: String, privateKey: String): String = crypto.decryptAES(value, privateKey)
 }
@@ -291,7 +291,7 @@ class Crypto @Inject() (config: CryptoConfig) {
    *
    * @param message The message to sign
    * @param key The private key to sign with
-   * @return A hexadecimal encoded signature
+   * @return a hexadecimal encoded signature
    */
   def sign(message: String, key: Array[Byte]): String = {
     val mac = config.provider.fold(Mac.getInstance("HmacSHA1"))(p => Mac.getInstance("HmacSHA1", p))
@@ -306,7 +306,7 @@ class Crypto @Inject() (config: CryptoConfig) {
    * `play.crypto.provider` in `application.conf`.
    *
    * @param message The message to sign
-   * @return A hexadecimal encoded signature
+   * @return a hexadecimal encoded signature
    */
   def sign(message: String): String = {
     sign(message, config.secret.getBytes("utf-8"))
@@ -319,7 +319,7 @@ class Crypto @Inject() (config: CryptoConfig) {
    * request, without actually changing the value.
    *
    * @param token The token to sign
-   * @return The signed token
+   * @return the signed token
    */
   def signToken(token: String): String = {
     val nonce = System.currentTimeMillis()
@@ -331,7 +331,7 @@ class Crypto @Inject() (config: CryptoConfig) {
    * Extract a signed token that was signed by [[play.api.libs.Crypto.signToken]].
    *
    * @param token The signed token to extract
-   * @return The verified raw token, or None if the token isn't valid
+   * @return the verified raw token, or None if the token isn't valid
    */
   def extractSignedToken(token: String): Option[String] = {
     token.split("-", 3) match {
@@ -398,7 +398,7 @@ class Crypto @Inject() (config: CryptoConfig) {
    * is always AES, so only AES transformation algorithms will work.
    *
    * @param value The String to encrypt
-   * @return An hexadecimal encrypted string
+   * @return an hexadecimal encrypted string
    */
   def encryptAES(value: String): String = {
     encryptAES(value, config.secret)
@@ -422,7 +422,7 @@ class Crypto @Inject() (config: CryptoConfig) {
    *
    * @param value The String to encrypt
    * @param privateKey The key used to encrypt
-   * @return A Base64 encrypted string
+   * @return a Base64 encrypted string
    */
   def encryptAES(value: String, privateKey: String): String = {
     val skeySpec = secretKeyWithSha256(privateKey, "AES")
@@ -470,7 +470,7 @@ class Crypto @Inject() (config: CryptoConfig) {
    * be selected here, the secret key spec used is always AES, so only AES transformation algorithms will work.
    *
    * @param value An hexadecimal encrypted string
-   * @return The decrypted String
+   * @return the decrypted String
    */
   def decryptAES(value: String): String = {
     decryptAES(value, config.secret)
@@ -490,7 +490,7 @@ class Crypto @Inject() (config: CryptoConfig) {
    *
    * @param value An hexadecimal encrypted string
    * @param privateKey The key used to encrypt
-   * @return The decrypted String
+   * @return the decrypted String
    */
   def decryptAES(value: String, privateKey: String): String = {
     val seperator = "-"

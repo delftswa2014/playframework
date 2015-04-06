@@ -40,7 +40,7 @@ object UriEncoding {
    * @param s The string to encode
    * @param inputCharset The name of the encoding that the string `s` is encoded with
    *     The string `s` will be converted to octets (bytes) using this character encoding.
-   * @return An encoded string in the US-ASCII character set
+   * @return an encoded string in the US-ASCII character set
    */
   def encodePathSegment(s: String, inputCharset: String): String = {
     val in = s.getBytes(inputCharset)
@@ -84,7 +84,7 @@ object UriEncoding {
    * @param outputCharset The name of the encoding that the output should be encoded with
    *     The output string will be converted from octets (bytes) using this character encoding.
    * @throws InvalidEncodingException If the input is not a valid encoded path segment.
-   * @return A decoded string in the `outputCharset` character set
+   * @return a decoded string in the `outputCharset` character set
    */
   def decodePathSegment(s: String, outputCharset: String): String = {
     val in = s.getBytes("US-ASCII")
@@ -131,7 +131,7 @@ object UriEncoding {
    * @param outputCharset The name of the encoding that the output should be encoded with
    *     The output string will be converted from octets (bytes) using this character encoding.
    * @throws InvalidEncodingException If the input is not a valid encoded path.
-   * @return A decoded string in the `outputCharset` character set
+   * @return a decoded string in the `outputCharset` character set
    */
   def decodePath(s: String, outputCharset: String): String = {
     // Note: Could easily expose a method to return the decoded path as a Seq[String].

@@ -220,7 +220,7 @@ case class Result(header: ResponseHeader, body: Enumerator[Array[Byte]],
 
   /**
    * @param request Current request
-   * @return The session carried by this result. Reads the request’s session if this result does not modify the session
+   * @return the session carried by this result. Reads the request’s session if this result does not modify the session
    */
   def session(implicit request: RequestHeader): Session =
     Cookies(header.headers.get(SET_COOKIE)).get(Session.COOKIE_NAME) match {
@@ -235,7 +235,7 @@ case class Result(header: ResponseHeader, body: Enumerator[Array[Byte]],
    * }}}
    * @param values (key -> value) pairs to add to this result’s session
    * @param request Current request
-   * @return A copy of this result with `values` added to its session scope
+   * @return a copy of this result with `values` added to its session scope
    */
   def addingToSession(values: (String, String)*)(implicit request: RequestHeader): Result =
     withSession(new Session(session.data ++ values.toMap))
@@ -247,7 +247,7 @@ case class Result(header: ResponseHeader, body: Enumerator[Array[Byte]],
    * }}}
    * @param keys Keys to remove from session
    * @param request Current request
-   * @return A copy of this result with `keys` removed from its session scope
+   * @return a copy of this result with `keys` removed from its session scope
    */
   def removingFromSession(keys: String*)(implicit request: RequestHeader): Result =
     withSession(new Session(session.data -- keys))

@@ -23,7 +23,7 @@ object ServerProvider {
    *
    * @param classLoader The ClassLoader to load the class from
    * @param configuration The configuration to look the server provider up from
-   * @return The server provider, if one was configured
+   * @return the server provider, if one was configured
    */
   def maybeServerProvider(classLoader: ClassLoader, configuration: Configuration): Option[ServerProvider] = {
     configuration.getString("play.server.provider").map(instantiateServerProvider(classLoader))

@@ -388,7 +388,7 @@ public class Http {
         List<play.i18n.Lang> acceptLanguages();
 
         /**
-         * @return The media types set in the request Accept header, sorted by preference (preferred first)
+         * @return the media types set in the request Accept header, sorted by preference (preferred first)
          */
         List<play.api.http.MediaRange> acceptedTypes();
 

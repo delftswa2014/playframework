@@ -524,7 +524,7 @@ object Concurrent {
    * @param e The enumerator to broadcast
    * @param interestIsDownToZero Function that is invoked when all iteratees are done.  May be invoked multiple times
    * $paramEcSingle
-   * @return A tuple of the broadcasting enumerator, that can be applied to each iteratee that wants to receive the
+   * @return a tuple of the broadcasting enumerator, that can be applied to each iteratee that wants to receive the
    *         input, and the broadcaster.
    */
   def broadcast[E](e: Enumerator[E], interestIsDownToZero: Broadcaster => Unit = _ => ())(implicit ec: ExecutionContext): (Enumerator[E], Broadcaster) = {
@@ -686,7 +686,7 @@ object Concurrent {
     /**
      * Patch in the given enumerator into the iteratee.
      *
-     * @return Whether the enumerator was successfully patched in.  Will return false if the patch panel is closed
+     * @return whether the enumerator was successfully patched in.  Will return false if the patch panel is closed
      */
     def patchIn(e: Enumerator[E]): Boolean
 

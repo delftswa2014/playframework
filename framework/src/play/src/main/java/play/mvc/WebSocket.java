@@ -28,7 +28,7 @@ public abstract class WebSocket<A> {
      *
      * This method will be invoked before onReady.
      *
-     * @return The result to reject the WebSocket with, or null if the WebSocket shouldn't be rejected
+     * @return the result to reject the WebSocket with, or null if the WebSocket shouldn't be rejected
      */
     public Result rejectWith() {
         return null;
@@ -46,7 +46,7 @@ public abstract class WebSocket<A> {
      * The props to create the actor to handle this WebSocket.
      *
      * @param out The actor to send upstream messages to
-     * @return The props of the actor to handle the WebSocket.  If isActor returns true, must not return null
+     * @return the props of the actor to handle the WebSocket.  If isActor returns true, must not return null
      */
     public Props actorProps(ActorRef out) {
         return null;
@@ -115,7 +115,7 @@ public abstract class WebSocket<A> {
      * Rejects a WebSocket.
      *
      * @param result The result that will be returned
-     * @return A rejected WebSocket
+     * @return a rejected WebSocket
      */
     public static <A> WebSocket<A> reject(final Result result) {
         return new WebSocket<A>() {
@@ -131,7 +131,7 @@ public abstract class WebSocket<A> {
      * Handles a WebSocket with an actor.
      *
      * @param props The function used to create the props for the actor.  The passed in argument is the upstream actor
-     * @return An actor WebSocket
+     * @return an actor WebSocket
      */
     public static <A> WebSocket<A> withActor(final Function<ActorRef, Props> props) {
         return new WebSocket<A>() {

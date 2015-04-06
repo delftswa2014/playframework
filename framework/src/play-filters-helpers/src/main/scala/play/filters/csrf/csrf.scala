@@ -145,7 +145,7 @@ object CSRF {
    * Extract token from current Java request
    *
    * @param request The request to extract the token from
-   * @return The token, if found
+   * @return the token, if found
    */
   def getToken(request: play.mvc.Http.Request): Optional[Token] = {
     Optional.ofNullable(getToken(request._underlyingHeader()).orNull)

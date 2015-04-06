@@ -36,7 +36,7 @@ public class Crypto {
      *
      * @param message The message to sign
      * @param key     The private key to sign with
-     * @return A hexadecimal encoded signature
+     * @return a hexadecimal encoded signature
      */
     public String sign(String message, byte[] key) {
         return crypto.sign(message, key);
@@ -49,7 +49,7 @@ public class Crypto {
      * <code>application.crypto.provider</code> in <code>application.conf</code>.
      *
      * @param message The message to sign
-     * @return A hexadecimal encoded signature
+     * @return a hexadecimal encoded signature
      */
     public String sign(String message) {
         return crypto.sign(message);
@@ -62,7 +62,7 @@ public class Crypto {
      * request, without actually changing the value.
      *
      * @param token The token to sign
-     * @return The signed token
+     * @return the signed token
      */
     public String signToken(String token) {
         return crypto.signToken(token);
@@ -72,7 +72,7 @@ public class Crypto {
      * Extract a signed token that was signed by {@link #signToken(String)}.
      *
      * @param token The signed token to extract
-     * @return The verified raw token, or null if the token isn't valid
+     * @return the verified raw token, or null if the token isn't valid
      */
     public String extractSignedToken(String token) {
         scala.Option<String> extracted = crypto.extractSignedToken(token);
@@ -130,7 +130,7 @@ public class Crypto {
      * spec used is always AES, so only AES transformation algorithms will work.
      *
      * @param value The String to encrypt
-     * @return An hexadecimal encrypted string
+     * @return an hexadecimal encrypted string
      */
     public String encryptAES(String value) {
         return crypto.encryptAES(value);
@@ -155,7 +155,7 @@ public class Crypto {
      *
      * @param value      The String to encrypt
      * @param privateKey The key used to encrypt
-     * @return An hexadecimal encrypted string
+     * @return an hexadecimal encrypted string
      */
     public String encryptAES(String value, String privateKey) {
         return crypto.encryptAES(value, privateKey);
@@ -173,7 +173,7 @@ public class Crypto {
      * algorithms will work.
      *
      * @param value An hexadecimal encrypted string
-     * @return The decrypted String
+     * @return the decrypted String
      */
     public String decryptAES(String value) {
         return crypto.decryptAES(value);
@@ -194,7 +194,7 @@ public class Crypto {
      *
      * @param value      An hexadecimal encrypted string
      * @param privateKey The key used to encrypt
-     * @return The decrypted String
+     * @return the decrypted String
      */
     public String decryptAES(String value, String privateKey) {
         return crypto.decryptAES(value, privateKey);

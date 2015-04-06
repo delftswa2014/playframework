@@ -154,7 +154,7 @@ public class NingWSResponse implements WSResponse {
 
     /**
      * Get the response body as a stream
-     * @return The stream to read the response body from
+     * @return the stream to read the response body from
      */
     @Override
     public InputStream getBodyAsStream() {
@@ -167,7 +167,7 @@ public class NingWSResponse implements WSResponse {
 
     /**
      * Get the response body as a byte array
-     * @return The byte array
+     * @return the byte array
      */
     @Override
     public byte[] asByteArray() {

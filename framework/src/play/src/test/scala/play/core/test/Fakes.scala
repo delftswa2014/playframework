@@ -21,7 +21,7 @@ object Fakes {
    * Create an injector from the given bindings.
    *
    * @param bindings The bindings
-   * @return The injector
+   * @return the injector
    */
   def injectorFromBindings(bindings: Seq[Binding[_]]): Injector = {
     new GuiceInjectorBuilder().bindings(bindings).injector
